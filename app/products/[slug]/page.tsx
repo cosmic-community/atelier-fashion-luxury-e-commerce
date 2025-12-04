@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export async function generateStaticParams() {
   const products = await getProducts()
-  return products.map((product) => ({
+  return products.map((product: Product) => ({
     slug: product.slug,
   }))
 }

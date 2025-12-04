@@ -7,7 +7,7 @@ import ProductGrid from '@/components/ProductGrid'
 
 export async function generateStaticParams() {
   const categories = await getCategories()
-  return categories.map((category) => ({
+  return categories.map((category: Category) => ({
     slug: category.slug,
   }))
 }
@@ -19,7 +19,7 @@ export default async function CategoryPage({
 }) {
   const { slug } = await params
   const categories = await getCategories()
-  const category = categories.find((cat) => cat.slug === slug) as Category | undefined
+  const category = categories.find((cat: Category) => cat.slug === slug) as Category | undefined
 
   if (!category) {
     notFound()
